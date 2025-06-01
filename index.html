@@ -30,33 +30,26 @@
       let answerText = document.getElementById('answerText')
       let nextQuestion = document.getElementById('nextQuestion')
       
-      let questions = []
-      let answers = []
-
-      let addQuestion = (question, answer) => {
-        questions.push(question);
-        answers.push(answer);
-      }
-
-      addQuestion("木", "Tree");
-      addQuestion("山", "Mountain");
-      addQuestion("日", "Sun");
-      addQuestion("月", "Moon");
-      addQuestion("雨", "Rain");
-      addQuestion("火", "Fire");
-      addQuestion("土", "Earth");
-      addQuestion("風", "Wind");
-      addQuestion("川", "River");
-      addQuestion("花", "Flower");
-
+      let questionsAndAnswers = [
+        ["木", "Tree"],
+        ["山", "Mountain"],
+        ["日", "Sun"],
+        ["月", "Moon"],
+        ["雨", "Rain"],
+        ["火", "Fire"],
+        ["土", "Earth"],
+        ["風", "Wind"],
+        ["川", "River"],
+        ["花", "Flower"]
+      ]
       let getRandomQuestionNumber = () =>{
-        return Math.floor(Math.random()*questions.length) + 1;    
+        return Math.floor(Math.random()*questionsAndAnswers.length) + 1;    
       }
       let getQuestionText = (questionNumber) =>{
-        return questions[questionNumber - 1];
+        return questionsAndAnswers[questionNumber - 1][0];
       }
       let getAnswerText = (questionNumber) =>{
-        return answers[questionNumber - 1];
+        return questionsAndAnswers[questionNumber - 1][1];
       }
       let questionNumber = getRandomQuestionNumber();
       questionText.innerText = getQuestionText(questionNumber);
